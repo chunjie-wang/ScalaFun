@@ -61,12 +61,23 @@ object Main extends App {
   }
 
   def testClass() {
-    class A(aa: Int, bb: Int) {
+    class A(val aa: Int, val bb: Int) {
       def a = aa
       def b = bb
+      def foo(x: Int):Int = {
+        return x + 1;
+      }
+      
     }
-
-    val x = new A(0, 1);
+    
+    class B(aa: Int,  bb: Int,  cc: Int) extends A(aa, bb) {
+      def c = cc
+      override def foo(x: Int): Int = {
+        return x + 2;
+      }
+    }
+    val x = new B(1, 0, 2);
     println("Values: %d %d".format(x.a, x.b))
+    println("call function foo: %d ".format(x.foo(3)))
   }
 }
