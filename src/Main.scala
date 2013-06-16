@@ -15,6 +15,12 @@ object Main extends App {
         println("addOne result %d".format(addOne(3)));
         
         /**
+         * no paramters, just like lambda
+         */
+        val noParam = () => println("no parameters");
+        noParam();
+        
+        /**
          * With return type specified
          */
         def timesTwo(i: Int): Int = {
@@ -33,7 +39,7 @@ object Main extends App {
          * Partial application
          */
         val sum10 = sum(10, _:Int)
-        println("sum result %d".format(sum10(4)));
+        println("sum10 result %d".format(sum10(4)));
         
         def capitalizeAll(args: String*) = {
             args.map { arg =>
@@ -42,5 +48,15 @@ object Main extends App {
         }
         
         capitalizeAll("abc", "cde");
+        /**
+         * var is mutable and val is immutable
+         */
+        def add(a: Int, b: Int): Int = {
+          println("add...")
+          var sum2:Int = 0
+          sum2 = a + b;
+          return sum2
+        }
+        println("add result: %d".format(add(10,11)))
     }
 }
