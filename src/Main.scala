@@ -1,5 +1,7 @@
-object Main extends App {
-  override def main(args: Array[String]) {
+package src
+
+object TestApp {
+  def main(args: Array[String]) {
     //testFunctions();
     testClass();
   }
@@ -58,6 +60,9 @@ object Main extends App {
       return sum2
     }
     println("add result: %d".format(add(10, 11)))
+    
+    def sub(a: Int, b: Int): Int = a - b;
+    
   }
 
   def testClass() {
