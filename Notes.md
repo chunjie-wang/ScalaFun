@@ -1,6 +1,6 @@
-# class vs case class
+### class vs case class
 
-# Patten match
+### Patten match
 - Reg Expression
 ```
 val EatingRegularExpression = """Eating Alert: bear=([^,]+),\s+source=(.+)""".r //.r turns a String to a regular expression
