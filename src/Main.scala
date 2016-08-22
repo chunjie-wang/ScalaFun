@@ -2,11 +2,49 @@ package src
 
 object TestApp {
   def main(args: Array[String]) {
+
+    val bbb = "2.4".toFloat.toLong
+    println(bbb)
+    val s = Singleton.getInstance()
+    val tab = Tab
+/*
     testFunctions();
     testClass();
     testLoop();
     testClosures();
     testHigherOrder();
+
+    val x = 10
+    val y = x match {
+      case 1 => 2
+      case 3 => 4
+      case _ => 5
+    }
+    println(y)
+
+    def get(t : Any) = {
+      t match {
+        case 1 => 3
+        case _ => 5
+      }
+    }
+    println("output : " + get(1))
+
+    val testpartial : PartialFunction[Int, String] = {
+      case 3 => "xyz"
+    }
+    val numbers = Map("one" -> 1, "two" -> 2)
+    val res = numbers.get("one2")
+    println(res.getOrElse(3))
+    */
+  }
+
+  def toInt(s: String): Option[Int] = {
+    try {
+      Some(Integer.parseInt(s))
+    } catch {
+      case e: Exception => None
+    }
   }
 
   /**
@@ -77,24 +115,38 @@ object TestApp {
     }
     
     printf("Which day it is: %d \n", whichDay(2, false))
+
+
+    // foldleft
+    val list1: List[Int] = List(1, 2, 3, 4)
+    val res = list1.foldLeft(0)((r, c) =>r + c)
+    println("fold left result : " + res)
   }
 
+
   def testClass() {
+
     class A(val aa: Int, val bb: Int) {
       def a = aa
       def b = bb
-      def foo(x: Int):Int = {
+      def foo(x: Int): Int = {
         return x + 1;
       }
-      
+
     }
-    
+
+    trait AA {
+      val id: Int
+      val name: String
+    }
+
     class B(aa: Int,  bb: Int,  cc: Int) extends A(aa, bb) {
       def c = cc
       override def foo(x: Int): Int = {
         return x + 2;
       }
     }
+
     val x = new B(1, 0, 2);
     println("Values: %d %d".format(x.a, x.b))
     println("call function foo: %d ".format(x.foo(3)))
@@ -173,4 +225,29 @@ object TestApp {
     val res = filter(even, arr)
     println(res)
   }
+
+  val taaa = Tab("ddd")
 }
+
+
+case class testabc(x: String) {
+
+}
+
+class Tab {
+  def ppp() = {}
+
+}
+object Tab {
+  var y: String = "d"
+  def apply(x: String): Unit = {
+    y = x
+  }
+}
+
+// companion obj e c t
+object Singleton {
+  private val instance : Singleton = new Singleton
+  def getInstance () = instance
+}
+class Singleton private ()
